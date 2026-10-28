@@ -31,6 +31,7 @@ html,body{width:100%;max-width:100%;overflow-x:clip}#root,.layout,.workspace,.ma
 /* Vue 3 application: responsive navigation and interactive shell */
 #root{min-height:100vh}.navbar-mobile.open{display:grid}.navbar-mobile:not(.open){display:none}.navbar-mobile .nav{display:flex;align-items:center;gap:10px}.navbar-mobile .nav.active{background:#2458d3}.navbar-links .nav{display:flex;align-items:center}.navbar-links .nav:focus-visible,.navbar-mobile .nav:focus-visible{outline:2px solid #b6ccff;outline-offset:2px}.navbar-controls button{display:flex;align-items:center;justify-content:center}@media(max-width:1050px){.navbar-mobile.open{display:grid}}/* GSAP animation support */
 #content .card,#content .product,#content .feature-tile,#content .membership-card{will-change:auto}.nav,.feature-tile,.product,.membership-card{transition:box-shadow .2s ease,background-color .2s ease,border-color .2s ease}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+.etemad-brand-logo{display:block;width:218px;height:auto;max-height:76px;object-fit:contain;object-position:left center}.navbar-branding .sidebar-top{padding:0;min-width:0}.navbar-branding{min-width:0}@media(max-width:560px){.etemad-brand-logo{width:166px;max-height:58px}}html[dir="rtl"] .etemad-brand-logo{object-position:right center}
 </style></head><body><div id="root"></div><script src="https://unpkg.com/vue@3.5.13/dist/vue.global.prod.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script><script>
 const seed=[{id:1,name:'Kabul Beauty Traders',city:'Kabul',category:'Cosmetics',tier:'Gold',verified:true,product:'Rosewater Skin Care Set',price:18,emoji:'🧴',rating:4.8},{id:2,name:'Balkh Textile House',city:'Mazar-e-Sharif',category:'Textiles',tier:'Silver',verified:true,product:'Handwoven Cotton Fabric',price:32,emoji:'🧵',rating:4.7},{id:3,name:'Herat Cosmetics Studio',city:'Herat',category:'Cosmetics',tier:'Gold',verified:true,product:'Natural Makeup Collection',price:25,emoji:'💄',rating:4.6},{id:4,name:'Kabul Fabric Collective',city:'Kabul',category:'Textiles',tier:'Free',verified:false,product:'Printed Shawl',price:12,emoji:'🧣',rating:4.3},{id:5,name:'Pamir Textile Supply',city:'Kabul',category:'Textiles',tier:'Gold',verified:true,product:'Bulk Fabric Lot (20m)',price:95,emoji:'🪡',rating:4.9},{id:6,name:'Safaa Beauty Wholesale',city:'Kabul',category:'Cosmetics',tier:'Silver',verified:true,product:'Beauty Essentials Kit',price:14,emoji:'🧼',rating:4.5}];
 const initial={sellers:seed,applications:[{id:101,name:'Noor Textile Workshop',city:'Kabul',category:'Textiles',tier:'Silver',status:'Pending',license:'DEMO-LIC-101'}],auctions:[{id:1,seller:5,product:'Bulk Fabric Lot (20m)',bid:110,bidder:'Demo Buyer',status:'Open'},{id:2,seller:1,product:'Seasonal Cosmetics Bundle',bid:40,bidder:'Demo Buyer',status:'Open'}],messages:[],disputes:[{id:1,seller:'Kabul Fabric Collective',issue:'Item description mismatch',status:'Open'}],orders:[],ads:[]};
@@ -72,10 +73,7 @@ function render(){
         <header class="top-navbar">
           <div class="navbar-shell">
             <div class="navbar-branding">
-              <div class="sidebar-top">
-                <div class="logo-mark"><span class="material-icons-outlined" aria-hidden="true">handshake</span></div>
-                <div><div class="brand">ETEMAD<span>.</span></div><div class="tagline">TRUST · VERIFIED · CONNECTED</div></div>
-              </div>
+              <div class="sidebar-top"><img class="etemad-brand-logo" src="assets/etemad-logo.svg" alt="Etemad — Trust. Verified. Connected." width="218" height="75"></div>
             </div>
             <nav class="navbar-links" aria-label="Main navigation">
               <button v-for="p in pages" :key="p[0]" class="nav" :class="{active:currentPage===p[0]}" :aria-current="currentPage===p[0]?'page':null" @click="navigate(p[0])">
